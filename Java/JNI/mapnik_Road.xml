@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--只显示Road图层-->
+<Map srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0 +k=1.0 +units=m +nadgrids=@null +no_defs" bgcolor="rgb(247,239,239)">
+		 <Style name="highway-border">
+			<Rule>
+				<Filter>([NR]&lt;=3)</Filter>
+				<LineSymbolizer stroke="rgb(188,149,28)" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/>
+			</Rule>
+		</Style>
+		 <Style name="highway-fill">
+			<Rule>
+				<Filter>([NR]&lt;=3)</Filter>
+				<LineSymbolizer stroke="rgb(242,191,36)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+			</Rule>
+		</Style>
+         <Style name="road-border">
+			<Rule>
+				<Filter>(([NR]=4) or ([NR]=5)or ([NR]=6))</Filter>
+				<LineSymbolizer stroke="rgb(171,158,137)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+			</Rule>
+		</Style>
+		 <Style name="road-fill">
+			<Rule>
+				<Filter>(([NR]=4) or ([NR]=5)or ([NR]=6))</Filter>
+
+				<LineSymbolizer stroke="rgb(255,250,115)" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+			</Rule>
+		</Style>
+		 <Style name="highway-label">
+			<Rule>
+				<Filter>([NR] = 1)</Filter>
+				<TextSymbolizer name="[STNAMEC]" face_name="Microsoft YaHei Regular" size="12" fill="rgb(0,0,200)" placement="line" halo_radius="1" max_char_angle_delta="60" halo_fill="rgb(255,255,200)" line_spacing="100" character_spacing="3"  avoid_edges="1" allow_overlap="0"  min_distance="50" spacing="500" />
+				<!--TextSymbolizer name="[STNAMEC]" 表名face_name="Microsoft YaHei Regular" 商品尺码size="12" 
+				填充fill="rgb(0,0,200)" 
+				布局placement="line" 
+				光圈的半径halo_radius="1" 
+				最大偏角max_char_angle_delta="60" 光圈的填充halo_fill="rgb(255,255,200)" 行间距line_spacing="100" 
+				字符间距character_spacing="3"  
+				避免棱角术语锯齿avoid_edges="1" 
+				允许重叠allow_overlap="0"  
+				最小距离min_distance="50" 
+				间距spacing="500" -->
+			</Rule>
+			<Rule>
+				<Filter>(([NR]&lt;=6) and ([NR] &gt;= 2))</Filter>
+				<TextSymbolizer name="[STNAMEC]" face_name="Microsoft YaHei Regular" size="9" fill="rgb(10,10,150)" placement="line" halo_radius="1" halo_fill="rgb(255,255,200)" line_spacing="100" character_spacing="1" avoid_edges="1" allow_overlap="0"  min_distance="20" spacing="300" max_char_angle_delta="35"/>
+            </Rule>
+         </Style>
+         <Layer name="Roads" srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0 +k=1.0 +units=m +nadgrids=@null +no_defs">
+			<StyleName>road-border</StyleName>
+			<StyleName>road-fill</StyleName>
+			<StyleName>highway-border</StyleName>
+			<StyleName>highway-fill</StyleName>
+			<StyleName>highway-label</StyleName>
+			<Datasource>
+				<Parameter name="encoding">GB2312</Parameter>
+				<Parameter name="file">F:/BeijingM/Pathline1-6</Parameter>
+				<Parameter name="type">shape</Parameter>
+			</Datasource>
+		</Layer>
+</Map>
